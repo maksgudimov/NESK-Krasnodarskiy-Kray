@@ -17,7 +17,7 @@ import datetime
 
 storage = MemoryStorage() #создание объекта класса оперативной памяти
 
-bot = Bot(token="5946911948:AAGP8aZjw8o2XHeXdI3hbqQ1a3JIE0WMfYA") #подключение токена
+bot = Bot(token="TOKEN") #подключение токена
 
 dp = Dispatcher(bot,storage=storage) #создание диспетчера с доступом хранения в оперативную память
 
