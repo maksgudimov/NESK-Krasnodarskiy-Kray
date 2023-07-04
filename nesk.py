@@ -30,13 +30,13 @@ from email.mime.text import MIMEText
 import traceback
 
 
-API_TOKEN = '5946911948:AAGP8aZjw8o2XHeXdI3hbqQ1a3JIE0WMfYA'
+API_TOKEN = 'TOKEN
 
-WEBHOOK_HOST = 'https://telega.it-spectrum.tech:8443' #telega.it-spectrum.tech https://telega.it-spectrum.tech:8443
+WEBHOOK_HOST = 'https://domen:port' 
 WEBHOOK_PATH = '/webhook' # тут оставь пустым
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 
-WEBAPP_HOST = '92.63.105.205'  # or ip http://telega.it-spectrum.tech/ 92.63.105.205 0 0 0 0 localhost
+WEBAPP_HOST = 'ip'  # 
 WEBAPP_PORT = 6060
 
 logging.basicConfig(level=logging.INFO)
@@ -329,16 +329,13 @@ async def quest(callback:types.CallbackQuery,state: FSMContext):
 
 
 
-
+#SMTP
 async def question(message:types.Message,state: FSMContext):
-    # smtpObj = smtplib.SMTP('smtp.yandex.ru', 587)
-    # smtpObj.starttls()
-    # smtpObj.login('telega_test@it-spectrum.tech', 'tXz-6v3-zS5-XFF')
     SMTP_CLIENT = aiosmtplib.SMTP(
         hostname="smtp.yandex.ru",
         port=465,
-        username="telega_test@it-spectrum.tech",
-        password="tXz-6v3-zS5-XFF",
+        username="user",
+        password="pass",
         use_tls=True
     )
 
@@ -359,7 +356,7 @@ async def question(message:types.Message,state: FSMContext):
             data['q_from_user'] = message.text
             msg = MIMEText(data['q_from_user'])
             async with SMTP_CLIENT:
-                await SMTP_CLIENT.sendmail("telega_test@it-spectrum.tech", "cto@it-spectrum.tech",msg.as_string())
+                await SMTP_CLIENT.sendmail("user", "ex@mail.ru",msg.as_string())
 
             #smtpObj.sendmail("telega_test@it-spectrum.tech","telega_test@it-spectrum.tech", msg.as_string()) #maks.gudimov.90@mail.ru
         #await sql_add(state)
