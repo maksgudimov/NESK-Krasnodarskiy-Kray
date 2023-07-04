@@ -1,0 +1,4 @@
+aiogram==2.23.1
+advertools==0.13.2
+emoji==2.2.0
+aiosmtplib==2.0.1
